@@ -18,7 +18,7 @@
       document.getElementById(tabId).classList.remove("hidden");
     }
   </script>
-   <link rel="icon" type="image/svg+xml" href="https://flowbite.com/docs/images/logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="https://flowbite.com/docs/images/logo.svg" />
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-white">
@@ -35,97 +35,70 @@
     <!-- Tab Buttons -->
     <div id="mobileMenu" class="md:flex md:flex-col md:w-1/5 bg-white dark:bg-gray-800 border-r dark:border-gray-700 p-4 space-y-2 hidden md:block">
       <button onclick="showTab('overview')" class="w-full text-left px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold">Overview</button>
-      <button onclick="showTab('users')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Users</button>
-      <button onclick="showTab('withdrawals')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Withdrawals</button>
+      <button onclick="showTab('users')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Manage Users</button>
       <button onclick="showTab('messages')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Messages</button>
-      <button onclick="showTab('analytics')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Analytics</button>
-      <button onclick="showTab('referrals')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Referrals</button>
-      <button onclick="showTab('settings')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Settings</button>
     </div>
 
     <!-- Tab Content -->
     <div class="md:w-4/5 p-4">
+      <!-- Overview -->
       <div id="overview" class="tab-content">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
-            <h2 class="text-xl font-bold">Total Users</h2>
-            <p class="text-3xl mt-2">1,240</p>
+            <h2 class="text-xl font-bold">All Earnings</h2>
+            <p class="text-3xl mt-2">PKR 150,000</p>
           </div>
           <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
-            <h2 class="text-xl font-bold">Total Earnings</h2>
-            <p class="text-3xl mt-2">₹93,000</p>
+            <h2 class="text-xl font-bold">Total Referrals</h2>
+            <p class="text-3xl mt-2">245</p>
           </div>
           <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
-            <h2 class="text-xl font-bold">Pending Withdrawals</h2>
-            <p class="text-3xl mt-2">₹12,300</p>
+            <h2 class="text-xl font-bold">My Earnings</h2>
+            <p class="text-3xl mt-2">PKR 7,500</p>
           </div>
+          <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
+            <h2 class="text-xl font-bold">My Referrals</h2>
+            <p class="text-3xl mt-2">30</p>
+          </div>
+          <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
+            <h2 class="text-xl font-bold">Withdrawable</h2>
+            <p class="text-3xl mt-2">PKR 2,000</p>
+          </div>
+          <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 rounded-lg text-white shadow-lg">
+            <h2 class="text-xl font-bold">Total Withdrawn</h2>
+            <p class="text-3xl mt-2">PKR 5,500</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h2 class="text-lg font-semibold mb-2">My Referral Link</h2>
+          <div class="flex items-center gap-2">
+            <input type="text" value="https://inviteandearn.com/ref123" readonly class="flex-1 p-2 rounded bg-gray-800 text-white">
+            <button onclick="navigator.clipboard.writeText('https://inviteandearn.com/ref123')" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-4 py-2 rounded hover:opacity-90">Copy</button>
+          </div>
+          <p class="mt-4 text-sm">Last Withdrawal: 15 May 2025 - PKR 1,000</p>
         </div>
       </div>
 
+      <!-- Users -->
       <div id="users" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">All Users</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg">
-            <thead>
-              <tr class="bg-gray-200 dark:bg-gray-700">
-                <th class="py-2 px-4">Name</th>
-                <th class="py-2 px-4">Email</th>
-                <th class="py-2 px-4">Referrals</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t dark:border-gray-700">
-                <td class="py-2 px-4">John Doe</td>
-                <td class="py-2 px-4">john@example.com</td>
-                <td class="py-2 px-4">12</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2 class="text-2xl font-semibold mb-4">Add User</h2>
+        <form class="bg-white dark:bg-gray-800 p-4 rounded-lg space-y-4">
+          <input type="text" placeholder="Name" class="w-full p-2 rounded border border-gray-300 dark:border-gray-600">
+          <input type="email" placeholder="Email" class="w-full p-2 rounded border border-gray-300 dark:border-gray-600">
+          <button type="submit" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-4 py-2 rounded hover:opacity-90">Add User</button>
+        </form>
       </div>
 
-      <div id="withdrawals" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">Withdrawal Requests</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg">
-            <thead>
-              <tr class="bg-gray-200 dark:bg-gray-700">
-                <th class="py-2 px-4">User</th>
-                <th class="py-2 px-4">Amount</th>
-                <th class="py-2 px-4">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t dark:border-gray-700">
-                <td class="py-2 px-4">Jane Smith</td>
-                <td class="py-2 px-4">₹500</td>
-                <td class="py-2 px-4">Pending</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
+      <!-- Messages -->
       <div id="messages" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">User Messages</h2>
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
-          <p><strong>Ali:</strong> Hello Admin! I need help with my payment.</p>
+        <h2 class="text-2xl font-semibold mb-4">Contact Messages</h2>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md space-y-2">
+          <p><strong>From:</strong> Zara (zara@example.com)</p>
+          <p><strong>Message:</strong> I invited 5 people but didn’t receive my bonus. Please check.</p>
+          <hr class="my-2 border-gray-600">
+          <p><strong>From:</strong> Adeel (adeel@example.com)</p>
+          <p><strong>Message:</strong> How long does it take to process a withdrawal?</p>
         </div>
-      </div>
-
-      <div id="analytics" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">Analytics</h2>
-        <p>Coming soon...</p>
-      </div>
-
-      <div id="referrals" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">Referral Summary</h2>
-        <p>Total Referrals, Top Referrers, Conversion Rate, etc.</p>
-      </div>
-
-      <div id="settings" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4">Admin Settings</h2>
-        <p>Update email, password, manage permissions etc.</p>
       </div>
     </div>
   </div>
