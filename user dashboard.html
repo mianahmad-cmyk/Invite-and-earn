@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function copyToClipboard(id, messageId) {
+      const element = document.getElementById(id);
+      navigator.clipboard.writeText(element.value).then(() => {
+        const msg = document.getElementById(messageId);
+        msg.classList.remove("hidden");
+        setTimeout(() => msg.classList.add("hidden"), 2000);
+      });
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-900 relative z-50">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="https://flowbite.com/docs/images/logo.svg" class="h-10" alt="Logo" />
+        <span class="text-1xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-md">Invite-and-earn</span>
+      </a>
+
+      <!-- Mobile Button -->
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+
+      <!-- Menu Items -->
+      <div class="hidden md:flex md:items-center md:justify-between md:w-auto absolute md:static top-full left-0 w-full bg-white dark:bg-gray-900 border-t md:border-0 shadow-md md:shadow-none z-40" id="navbar-default">
+        <ul class="font-medium flex flex-col md:flex-row p-4 md:p-0 space-y-2 md:space-y-0 md:space-x-8">
+          <li><a href="/home.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Home</a></li>
+          <li><a href="user dashboard.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Dashboard</a></li>
+
+          <li><a href="about us.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">About</a></li>
+          <li><a href="contact.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Contact</a></li>
+          <li>
+            <a href="signin.html" class="text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Login</a>
+            <a href="signup.html" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Dashboard Content -->
+  <div class="flex items-center justify-center px-4 py-10">
+    <div class="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-center mb-10">
+        Welcome to Your Dashboard
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+          <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Total Referrals</h2>
+          <p class="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-2">45</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+          <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Total Earnings</h2>
+          <p class="text-2xl font-bold text-purple-600 dark:text-purple-400 mt-2">₹2,250</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg text-center">
+          <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Withdrawable Amount</h2>
+          <p class="text-2xl font-bold text-pink-600 dark:text-pink-400 mt-2">₹1,800</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="mt-6">
+          <label for="referralLink" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Your Referral Link</label>
+          <div class="flex items-center justify-center gap-2">
+            <input type="text" id="referralLink" value="https://yourdomain.com/referral?code=123456" readonly class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200" />
+            <button onclick="copyToClipboard('referralLink', 'copyMessageLink')" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition">Copy</button>
+          </div>
+          <p id="copyMessageLink" class="text-green-500 mt-2 hidden">Referral link copied to clipboard!</p>
+        </div>
+
+        <div class="mt-6">
+          <label for="referralCode" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Your Referral Code</label>
+          <div class="flex items-center justify-center gap-2">
+            <input type="text" id="referralCode" value="123456" readonly class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200" />
+            <button onclick="copyToClipboard('referralCode', 'copyMessageCode')" class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition">Copy</button>
+          </div>
+          <p id="copyMessageCode" class="text-green-500 mt-2 hidden">Referral code copied to clipboard!</p>
+        </div>
+
+        <button class="mt-6 inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:opacity-90 transition">
+          Withdraw Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
+</body>
+
+
+</html>
