@@ -7,58 +7,55 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="flex flex-col min-h-[100dvh] overflow-hidden">
+<body class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col min-h-screen">
 
+    <!-- ✅ NAVBAR -->
+    <nav class="bg-white dark:bg-gray-900 relative z-50">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="https://flowbite.com/docs/images/logo.svg" class="h-10" alt="Logo" />
+          <span class="text-1xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-md">Invite-and-earn</span>
+        </a>
 
- <!-- ✅ NAVBAR -->
- <nav class="bg-white dark:bg-gray-900 relative z-50">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-10" alt="Logo" />
-        <span class="text-1xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-md">Invite-and-earn</span>
-      </a>
+        <!-- Mobile Button -->
+        <button data-collapse-toggle="navbar-default" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
 
-      <!-- Mobile Button -->
-      <button data-collapse-toggle="navbar-default" type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15" />
-        </svg>
-      </button>
-
-      <!-- Menu Items -->
-      <div class="hidden md:flex md:items-center md:justify-between md:w-auto absolute md:static top-full left-0 w-full bg-white dark:bg-gray-900 border-t md:border-0 shadow-md md:shadow-none z-40" id="navbar-default">
-        <ul class="font-medium flex flex-col md:flex-row p-4 md:p-0 space-y-2 md:space-y-0 md:space-x-8">
-          <li><a href="/home.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Home</a></li>
-          <li><a href="user dashboard.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Dashboard</a></li>
-
-          <li><a href="about us.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">About</a></li>
-          <li><a href="contact.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Contact</a></li>
-          <li>
-            <a href="signin.html" class="text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Login</a>
-            <a href="signup.html" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Sign up</a>
-          </li>
-        </ul>
+        <!-- Menu Items -->
+        <div class="hidden md:flex md:items-center md:justify-between md:w-auto absolute md:static top-full left-0 w-full bg-white dark:bg-gray-900 border-t md:border-0 shadow-md md:shadow-none z-40" id="navbar-default">
+          <ul class="font-medium flex flex-col md:flex-row p-4 md:p-0 space-y-2 md:space-y-0 md:space-x-8">
+            <li><a href="/home.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Home</a></li>
+            <li><a href="user dashboard.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Dashboard</a></li>
+            <li><a href="about us.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">About</a></li>
+            <li><a href="contact.html" class="block py-2 px-3 text-gray-900 hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500">Contact</a></li>
+            <li>
+              <a href="signin.html" class="text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Login</a>
+              <a href="signup.html" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 transition duration-300 ease-in-out">Sign up</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-
-<!-- ✅ SECTION -->
-<section class="flex-1 bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
-
+    <!-- ✅ SECTION -->
+    <section class="flex-1 flex items-center justify-center px-4 py-12 md:py-0 md:min-h-[calc(100vh-80px)]">
   <div class="max-w-3xl mx-auto text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-md">
+    <h1 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-md">
       Welcome to Invite and Earn Website
     </h1>
-    <p class="mt-6 text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+    <p class="mt-6 text-base md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
       We make it simple for you to earn rewards by inviting others to our platform. Whether you're a student, freelancer, or entrepreneur — refer, track, and earn real-time bonuses. It's easy, secure, and rewarding!
     </p>
     <div class="mt-8">
-      <a href="#"
+      <a href="signup.html"
         class="inline-block text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90">
         Get Started
       </a>
@@ -67,7 +64,52 @@
 </section>
 
 
-  <!-- ✅ Flowbite JS (Fixes mobile toggle) -->
+    <!-- ✅ FOOTER -->
+    <footer class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm md:text-base">
+          <!-- Policies -->
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Policies</h2>
+            <ul class="space-y-2">
+              <li><a href="return-policy.html" class="hover:underline">Return Policy</a></li>
+              <li><a href="/privacy-policy.html" class="hover:underline">Privacy Policy</a></li>
+              <li><a href="/refund-policy.html" class="hover:underline">Refund Policy</a></li>
+              <li><a href="/terms-and-conditions.html" class="hover:underline">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Info -->
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Company Info</h2>
+            <ul class="space-y-2">
+              <li>Customer Service: <span class="font-medium">invite.and.earn25@gmail.com</span></li>
+              <li>Operational Hours: <span class="font-medium">Mon - Sat, 10am - 6pm</span></li>
+              <li>Address: <span class="font-medium"> Muridke, Pakistan</span></li>
+              <li>All prices listed in <span class="font-medium">PKR</span></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Support</h2>
+            <ul class="space-y-2">
+              <li><a href="/FAQ's.html" class="hover:underline">FAQs</a></li>
+              <li><a href="/contact.html" class="hover:underline">Contact Us</a></li>
+              <li><a href="/about us.html" class="hover:underline">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-white mt-10 pt-6 text-center text-sm">
+          <p>&copy; 2025 Invite-and-earn. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ✅ Flowbite JS -->
   <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
 </body>
 </html>
