@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us - Invite and Earn</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <link href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" rel="stylesheet" />
    <link rel="icon" type="image/svg+xml" href="https://flowbite.com/docs/images/logo.svg" />
 </head>
@@ -61,27 +62,28 @@
 
   <!-- Right Form -->
   <div class="md:w-1/2 w-full max-w-md bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-md">
-    <form class="space-y-4 md:space-y-5">
-      <div>
-        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
-        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Ali Khan" required>
-      </div>
-      <div>
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="you@email.com" required>
-      </div>
-      <div>
-        <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
-        <input type="text" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="General Inquiry" required>
-      </div>
-      <div>
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
-        <textarea id="message" rows="2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Write your message here..." required></textarea>
-      </div>
-      <button type="submit" class="w-full text-white text-lg font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90">
-        Send Message
-      </button>
-    </form>
+<form id="contact-form" class="space-y-4 md:space-y-5">
+  <div>
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+    <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Ali Khan" required>
+  </div>
+  <div>
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+    <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="you@email.com" required>
+  </div>
+  <div>
+    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+    <input type="text" id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="General Inquiry" required>
+  </div>
+  <div>
+    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
+    <textarea id="message" name="message" rows="2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Write your message here..." required></textarea>
+  </div>
+  <button type="submit" class="w-full text-white text-lg font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90">
+    Send Message
+  </button>
+</form>
+
   </div>
 </section>
 
@@ -129,5 +131,32 @@
     </footer>
 
   <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
+  <script>
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:0VUZkdjp/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    console.log('Server response:', result);
+
+    if (response.ok) {
+      alert("✅ Your message has been sent!");
+      form.reset();
+    } else {
+      alert("❌ Something went wrong. Please try again.");
+    }
+  });
+</script>
 </body>
 </html>
