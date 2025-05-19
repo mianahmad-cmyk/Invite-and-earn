@@ -30,24 +30,66 @@
 
       <!-- Right Side - Sign In Form -->
       <div class="md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
-        <form class="space-y-6">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Sign In</h2>
+      <form class="space-y-6" onsubmit="return handleLogin(event)">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Sign In</h2>
 
-          <input type="email" placeholder="Email Address" required
-            class="w-full px-4 py-2 text-sm rounded-md border border-gray-300 focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+  <input id="email" type="email" placeholder="Email Address" required
+    class="w-full px-4 py-2 text-sm rounded-md border border-gray-300 focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
 
-          <input type="password" placeholder="Password" required
-            class="w-full px-4 py-2 text-sm rounded-md border border-gray-300 focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+  <input id="password" type="password" placeholder="Password" required
+    class="w-full px-4 py-2 text-sm rounded-md border border-gray-300 focus:ring-2 focus:ring-purple-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
 
-          <button type="submit"
-            class="w-full text-sm font-semibold py-3 rounded-lg shadow-lg text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 transition duration-300">
-            Sign In
-          </button>
-        </form>
+  <button type="submit"
+    class="w-full text-sm font-semibold py-3 rounded-lg shadow-lg text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 transition duration-300">
+    Sign In
+  </button>
+
+  <p id="errorMsg" class="text-red-600 text-sm hidden">Invalid email or password.</p>
+  <p id="userMsg" class="text-yellow-600 text-sm hidden">User login coming soon!</p>
+</form>
+
       </div>
 
     </div>
   </div>
+
+
+  <script>
+  const adminEmail = "miansahib2002@gmail.com";  // 👈 Change this
+  const adminPassword = "admin8125";       // 👈 Change this
+
+  function handleLogin(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const errorMsg = document.getElementById("errorMsg");
+    const userMsg = document.getElementById("userMsg");
+
+    // Hide messages
+    errorMsg.classList.add("hidden");
+    userMsg.classList.add("hidden");
+
+    // Admin Login
+    if (email === adminEmail && password === adminPassword) {
+      localStorage.setItem("isAdmin", "true");
+      window.location.href = "/admin dashboard.html"; // 👈 your admin page URL
+      return false;
+    }
+
+    // Placeholder for future user login
+    if (email && password) {
+      userMsg.classList.remove("hidden");
+      return false;
+    }
+
+    // Invalid form
+    errorMsg.classList.remove("hidden");
+    return false;
+  }
+</script>
+
 
 </body>
 
